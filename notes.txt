@@ -1,0 +1,29 @@
+jenkins-docker-certs:/certs/client:ro
+
+type=volume,source=jenkins-docker-certs,destination=/certs/client:ro
+type=volume,source=/var/run/docker.sock,destination=/var/run/docker.sock
+
+DOCKER_HOST=tcp://docker:2376
+DOCKER_TLS_CERTDIR=/certs
+
+------------------------
+
+jenkins/agent:latest-jdk11
+
+Label: jenkins-dind
+hachikoapp/jenkins-dind-slave:0.0.4
+
+Mounts: type=volume,source=jenkins-docker-certs,destination=/certs/client:ro
+Environment:
+TZ=America/Toronto
+DOCKER_HOST=tcp://docker:2376
+DOCKER_TLS_CERTDIR=/certs
+
+Run container privileged: true
+Remote File System Root: /home/jenkins/agent
+
+---------------------
+
+Docker test
+
+docker run -it --network jenkins busybox sh
