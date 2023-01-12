@@ -54,5 +54,6 @@ docker exec jenkins-docker cat /certs/server/ca.pem
 
 ## Resources
 
+- [How to install and run Jenkins with Docker Compose](https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose)
 - [Run Jenkins in a Docker container -- part 1 -- Docker-in-Docker](https://davelms.medium.com/run-jenkins-in-a-docker-container-part-1-docker-in-docker-7ca75262619d)
 - [Building Docker images using Jenkins running as a Docker container](https://www.youtube.com/watch?v=h15Mh9FDMLo)
