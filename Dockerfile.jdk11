@@ -1,4 +1,4 @@
-FROM jenkins/ssh-agent:latest-jdk11
+FROM jenkins/agent:latest-jdk11
 USER root
 RUN apt-get update \
     && apt-get --yes --no-install-recommends install \

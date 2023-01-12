@@ -1,11 +1,12 @@
-FROM jenkins/agent:latest-jdk11
+FROM jenkins/ssh-agent:latest-jdk11
 USER root
 RUN apt-get update \
     && apt-get --yes --no-install-recommends install \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
+    lsb-release \
+    git
 
 # setup Docker
 RUN mkdir -p /etc/apt/keyrings \

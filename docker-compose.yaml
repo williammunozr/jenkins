@@ -28,7 +28,7 @@ services:
       - 80:8080
       - 50000:50000
   agent:
-    image: hachikoapp/jenkins-dind-slave:0.0.6
+    image: hachikoapp/jenkins-dind-slave:0.0.7
     privileged: true
     user: root
     container_name: agent
@@ -45,22 +45,3 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - master
-
-  # slave:
-  #   image: 777777777777.dkr.ecr.us-west-2.amazonaws.com/jenkins-slave:latest
-  #   container_name: slave
-  #   user: jenkins
-  #   environment:
-  #     - TZ=America/Toronto
-  #   restart: always
-  #   environment:
-  #     - SLAVE_NAME=us
-  #     - SLAVE_SECRET=p77c7fea7b7f777c777df77777de77777a77b777777c77777777777b7777c777
-  #   volumes:
-  #     # - /slave1/workspace/:/workspace/
-  #     - /data/:/data/
-  #     # - $HOME/slave:/var/jenkins_home
-  #   extra_hosts:
-  #     - "host.docker.internal:host-gateway"
-  #   depends_on:
-  #     - master
